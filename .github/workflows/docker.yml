@@ -45,7 +45,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.ATTIC_REF }}
+          tags: ${{ env.REGISTRY }}/aarnaud/attic:${{ env.ATTIC_REF }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: ATTIC_REF=${{ env.ATTIC_REF }}
