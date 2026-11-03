@@ -14,8 +14,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: attic
-  ATTIC_REF: 7a19204df10d606c5070e6bb72615c3461900c05
+  IMAGE_NAME: celler
+  CELLER_REF: a876b3fce85cacd14c7ccdf9887bc675bf892b2d
 
 jobs:
   build-and-push:
@@ -45,7 +45,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.REGISTRY }}/aarnaud/attic:${{ env.ATTIC_REF }}
+          tags: ${{ env.REGISTRY }}/aarnaud/${{ env.IMAGE_NAME }}:${{ env.CELLER_REF }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: ATTIC_REF=${{ env.ATTIC_REF }}
+          build-args: CELLER_REF=${{ env.CELLER_REF }}
